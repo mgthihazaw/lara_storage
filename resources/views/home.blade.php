@@ -17,17 +17,18 @@
                                 File Manager
                             </div>
                             <div class="card-body">
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('/image') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="title">Title</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="title">
                                     </div>
                                     <div class="form-group">
                                         <label for="image">Image</label>
-                                        <input type="file" class="form-control">
+                                        <input type="file" class="form-control" name="file">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary">Upload</button>
+                                        <button type="submit" class="btn btn-primary">Upload</button>
                                     </div>
                                 </form>
                              </div>
