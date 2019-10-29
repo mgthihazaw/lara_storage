@@ -3,7 +3,7 @@
     <div class="input-group mb-3">
       <input
         type="text"
-        v-model="files"
+        :value="files ? files.name : ''"
         readonly
         class="form-control"
         placeholder="Choose Your images"

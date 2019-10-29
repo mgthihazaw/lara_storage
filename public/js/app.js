@@ -37287,29 +37287,13 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "input-group mb-3" }, [
       _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.files,
-            expression: "files"
-          }
-        ],
         staticClass: "form-control",
         attrs: {
           type: "text",
           readonly: "",
           placeholder: "Choose Your images"
         },
-        domProps: { value: _vm.files },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.files = $event.target.value
-          }
-        }
+        domProps: { value: _vm.files ? _vm.files.name : "" }
       }),
       _vm._v(" "),
       _c("span", { staticClass: "input-group-btn" }, [
