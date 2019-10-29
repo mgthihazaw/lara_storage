@@ -9,7 +9,7 @@ class ImageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,18 +24,19 @@ class ImageController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'imagefile' => 'image|mimes:jpeg,bmp,png',
-            'title' => 'required | string'
-        ]);
+
+        // $request->validate([
+        //     'imagefile' => 'image|mimes:jpeg,bmp,png',
+        //     'title' => 'required | string'
+        // ]);
 
         if ($request->hasFile('imagefile')) {
             $image = new Image();
             $image->title = $request->title;
             $image->filename = $this->uploadFile($request);
             $image->save();
-
-            return redirect()->back()->with('success', 'Your Image is successfully uploaded');
+            return response()->json(['data' => "Successfully Upload"], 200);
+            // return redirect()->back()->with('success', 'Your Image is successfully uploaded');
         }
         return "Your image is Invalid";
     }
